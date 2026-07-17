@@ -1,6 +1,10 @@
 // TODO: confirmar o número real do WhatsApp do Santa Mistura antes de publicar em produção.
 export const WHATSAPP_NUMBER = "5547XXXXXXXXX";
 
+// TODO: confirmar o domínio de produção antes de publicar (usado em metadataBase,
+// sitemap.xml, robots.txt e no JSON-LD).
+export const SITE_URL = "https://santamisturajoinville.com.br";
+
 const WHATSAPP_MESSAGE = "Olá! Gostaria de reservar uma mesa no Santa Mistura.";
 
 export const site = {
