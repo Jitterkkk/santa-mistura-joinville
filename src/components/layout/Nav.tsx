@@ -8,6 +8,7 @@ import { prefersReducedMotion } from "@/lib/motion-preference";
 import { AnchorLink } from "@/components/motion/AnchorLink";
 import { useLenis } from "@/components/motion/SmoothScrollProvider";
 import { Container } from "@/components/ui/Container";
+import { Logo } from "@/components/ui/Logo";
 import { useScrolled } from "@/hooks/useScrolled";
 import { site } from "@/data/site";
 import { NAV_LINKS } from "@/lib/nav-links";
@@ -80,10 +81,11 @@ export function Nav() {
         <Container className="flex h-20 items-center justify-between sm:h-24">
           <Link
             href="/"
-            className="font-display text-xl tracking-tight uppercase sm:text-2xl"
+            aria-label="Santa Mistura — início"
+            className="shrink-0"
             onClick={() => setOpen(false)}
           >
-            Santa Mistura
+            <Logo className={cn("transition-all duration-300", scrolled ? "h-9 w-9" : "h-11 w-11")} />
           </Link>
 
           <nav className="hidden items-center gap-8 lg:flex" aria-label="Navegação principal">
@@ -144,6 +146,14 @@ export function Nav() {
           ref={panelRef}
           className="fixed inset-0 z-40 flex flex-col justify-center gap-1 bg-ink px-8 pb-16 lg:hidden"
         >
+          <Link
+            href="/"
+            aria-label="Santa Mistura — início"
+            onClick={() => setOpen(false)}
+            className="mb-8 inline-flex w-fit"
+          >
+            <Logo className="h-14 w-14" />
+          </Link>
           {NAV_LINKS.map((link) => (
             <div key={link.href} className="overflow-hidden">
               <AnchorLink

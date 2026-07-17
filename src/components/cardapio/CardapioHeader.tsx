@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import { Logo } from "@/components/ui/Logo";
 import { site } from "@/data/site";
 
 export function CardapioHeader() {
@@ -12,11 +13,8 @@ export function CardapioHeader() {
         >
           <span aria-hidden="true">←</span> Início
         </Link>
-        <Link
-          href="/"
-          className="font-display text-lg tracking-tight text-ink uppercase sm:text-xl"
-        >
-          Santa Mistura
+        <Link href="/" aria-label="Santa Mistura — início">
+          <Logo className="h-10 w-10" />
         </Link>
         <a
           href={site.waLink}

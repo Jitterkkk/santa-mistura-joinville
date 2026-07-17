@@ -87,6 +87,13 @@ ${entries}
   writeFileSync(BLUR_OUT, fileContent, "utf8");
 
   console.log(`\n${processed}/${SLOTS.length} imagens processadas. blur-data.generated.ts atualizado.`);
+
+  const logoPath = path.join(ROOT, "public", "logo.svg");
+  if (existsSync(logoPath)) {
+    const appleIconPath = path.join(ROOT, "src", "app", "apple-icon.png");
+    await sharp(logoPath).resize(180, 180).png().toFile(appleIconPath);
+    console.log("✓ apple-icon.png — 180×180 gerado a partir de public/logo.svg");
+  }
 }
 
 run();
