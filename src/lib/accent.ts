@@ -30,6 +30,13 @@ export const ACCENT_BORDER: Record<Accent, string> = {
   drink: "border-drink",
 };
 
+export const ACCENT_GROUP_HOVER_TEXT: Record<Accent, string> = {
+  entrada: "group-hover:text-entrada",
+  principal: "group-hover:text-principal",
+  doce: "group-hover:text-doce",
+  drink: "group-hover:text-drink",
+};
+
 export function accentAt(index: number): Accent {
   return ACCENT_ORDER[index % ACCENT_ORDER.length];
 }

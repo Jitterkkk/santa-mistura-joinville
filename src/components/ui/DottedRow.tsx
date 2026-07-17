@@ -1,5 +1,7 @@
 import { cn } from "@/lib/cn";
 import { formatPrice } from "@/lib/format";
+import { ACCENT_GROUP_HOVER_TEXT } from "@/lib/accent";
+import type { Accent } from "@/data/menu";
 import { Chip } from "./Chip";
 
 export function DottedRow({
@@ -7,6 +9,7 @@ export function DottedRow({
   price,
   tags,
   light,
+  hoverAccent,
   className,
   nameClassName,
 }: {
@@ -14,11 +17,12 @@ export function DottedRow({
   price?: number;
   tags?: string[];
   light?: boolean;
+  hoverAccent?: Accent;
   className?: string;
   nameClassName?: string;
 }) {
   return (
-    <div className={cn("flex items-baseline gap-2.5", className)}>
+    <div className={cn("group flex items-baseline gap-2.5", className)}>
       <span
         className={cn(
           "shrink-0 font-sans text-[0.92em] font-semibold tracking-wide uppercase",
@@ -46,8 +50,9 @@ export function DottedRow({
       />
       <span
         className={cn(
-          "shrink-0 font-sans text-[0.92em] tabular-nums",
-          light ? "text-paper" : "text-ink"
+          "shrink-0 font-sans text-[0.92em] tabular-nums transition-colors duration-200",
+          light ? "text-paper" : "text-ink",
+          hoverAccent && ACCENT_GROUP_HOVER_TEXT[hoverAccent]
         )}
       >
         {price != null ? formatPrice(price) : "consultar"}
