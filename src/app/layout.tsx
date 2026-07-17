@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Anton, Archivo } from "next/font/google";
+import { SmoothScrollProvider } from "@/components/motion/SmoothScrollProvider";
 import "./globals.css";
 
 const anton = Anton({
@@ -29,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${anton.variable} ${archivo.variable}`}>
       <body className="min-h-screen bg-paper text-ink antialiased">
-        {children}
+        <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>
   );

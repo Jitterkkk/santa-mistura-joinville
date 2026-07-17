@@ -12,7 +12,7 @@
   --color-drink: #00a7dc;
 
   --animate-marquee: marquee 32s linear infinite;
-  --animate-spin-slow: spin 16s linear infinite;
+  --animate-spin-slow: spin-slow 16s linear infinite;
 }
 
 @theme inline {
@@ -53,6 +53,12 @@
   }
   to {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
   }
 }
 
