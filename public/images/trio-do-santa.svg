@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Foto em breve">
+  <rect width="1200" height="900" fill="#E9E7E2" />
+  <rect x="0.5" y="0.5" width="1199" height="899" fill="none" stroke="#141414" stroke-opacity="0.08" />
+  <text x="50%" y="450" text-anchor="middle" dominant-baseline="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="180" textLength="1008" lengthAdjust="spacingAndGlyphs" fill="none" stroke="#141414" stroke-opacity="0.16" stroke-width="1.4">TRIO DO SANTA</text>
+  <rect x="996" y="836" width="176" height="36" rx="18" fill="#E9E7E2" stroke="#141414" stroke-opacity="0.2" />
+  <text x="1084" y="858" text-anchor="middle" font-family="Arial, sans-serif" font-weight="600" font-size="11" letter-spacing="1.5" fill="#141414" fill-opacity="0.55">FOTO EM BREVE</text>
+</svg>
