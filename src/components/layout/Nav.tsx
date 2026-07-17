@@ -9,15 +9,8 @@ import { useLenis } from "@/components/motion/SmoothScrollProvider";
 import { Container } from "@/components/ui/Container";
 import { useScrolled } from "@/hooks/useScrolled";
 import { site } from "@/data/site";
+import { NAV_LINKS } from "@/lib/nav-links";
 import { cn } from "@/lib/cn";
-
-const LINKS = [
-  { href: "#sobre", label: "Sobre" },
-  { href: "#destaques", label: "Destaques" },
-  { href: "#drinks", label: "Drinks" },
-  { href: "#galeria", label: "Galeria" },
-  { href: "#contato", label: "Contato" },
-] as const;
 
 export function Nav() {
   const scrolled = useScrolled(12);
@@ -84,7 +77,7 @@ export function Nav() {
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Navegação principal">
-          {LINKS.map((link) => (
+          {NAV_LINKS.map((link) => (
             <AnchorLink
               key={link.href}
               href={link.href}
@@ -140,7 +133,7 @@ export function Nav() {
           ref={panelRef}
           className="fixed inset-0 top-0 flex flex-col justify-center gap-1 bg-ink px-8 pb-16 lg:hidden"
         >
-          {LINKS.map((link) => (
+          {NAV_LINKS.map((link) => (
             <div key={link.href} className="overflow-hidden">
               <AnchorLink
                 href={link.href}
