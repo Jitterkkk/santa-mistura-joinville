@@ -1,22 +1,23 @@
-// Enquanto as fotos reais não chegam do cliente, os arquivos em /public/images
-// são placeholders SVG gerados por scripts/generate-placeholders.mjs.
-// Para trocar por fotos reais: derrube os arquivos em /public/images com o
-// mesmo nome-base (ex.: hero.webp) e mude só a linha abaixo.
-const EXT = ".svg"; // TODO: trocar para ".webp" quando as fotos reais forem enviadas
+// Slots ainda sem foto real enviada pelo cliente seguem em placeholder SVG
+// (gerado por scripts/generate-placeholders.mjs). Conforme scripts/optimize-images.mjs
+// processa novos arquivos de raw-images/, troque a extensão do slot aqui.
+const PLACEHOLDER_EXT = ".svg";
+const PHOTO_EXT = ".webp";
 
-const path = (name: string) => `/images/${name}${EXT}`;
+const placeholder = (name: string) => `/images/${name}${PLACEHOLDER_EXT}`;
+const photo = (name: string) => `/images/${name}${PHOTO_EXT}`;
 
 export const images = {
-  hero: path("hero"),
-  ambiente1: path("ambiente-1"),
-  ambiente2: path("ambiente-2"),
+  hero: placeholder("hero"),
+  ambiente1: placeholder("ambiente-1"),
+  ambiente2: placeholder("ambiente-2"),
   destaques: {
-    polvoRisoto: path("polvo-risoto"),
-    camaraoKingGeorge: path("camarao-king-george"),
-    primeRib: path("prime-rib"),
-    bruschettaBlumenau: path("bruschetta-blumenau"),
-    atumSelado: path("atum-selado"),
-    trioDoSanta: path("trio-do-santa"),
+    polvoRisoto: placeholder("polvo-risoto"),
+    camaraoKingGeorge: placeholder("camarao-king-george"),
+    primeRib: placeholder("prime-rib"),
+    bruschettaBlumenau: placeholder("bruschetta-blumenau"),
+    atumSelado: placeholder("atum-selado"),
+    trioDoSanta: placeholder("trio-do-santa"),
   },
-  galeria: [1, 2, 3, 4, 5, 6].map((n) => path(`galeria-${n}`)),
+  galeria: [1, 2, 3, 4, 5, 6].map((n) => photo(`galeria-${n}`)),
 } as const;

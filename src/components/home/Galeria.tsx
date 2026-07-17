@@ -10,14 +10,15 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { cn } from "@/lib/cn";
 import { images } from "@/data/images";
 import { site } from "@/data/site";
+import { blurData } from "@/data/blur-data.generated";
 
 const GALLERY_ALT = [
-  "Ambiente do Santa Mistura",
-  "Prato da cozinha internacional do Santa Mistura",
-  "Detalhe de arte no salão do Santa Mistura",
-  "Evento no Santa Mistura",
-  "Salão do Santa Mistura",
-  "Adega do Santa Mistura",
+  "Polvo grelhado com risoto de camarão e limão siciliano no Santa Mistura",
+  "Burrata italiana com pão no Santa Mistura",
+  "Steak au Poivre Vert servido no pátio do Santa Mistura",
+  "Bacalhau com azeitonas e tomate, salão do Santa Mistura ao fundo",
+  "Mesa posta com filé, camarão e drinks no Santa Mistura",
+  "Tartelete de chocolate com café do Santa Mistura",
 ];
 
 const COLUMN_OFFSET = ["", "lg:mt-16", "lg:mt-8"];
@@ -101,34 +102,38 @@ export function Galeria() {
         />
 
         <div className="mt-16 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3 lg:gap-8">
-          {images.galeria.map((src, i) => (
-            <a
-              key={src}
-              href={site.instagramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Ver post no Instagram: ${GALLERY_ALT[i]}`}
-              data-reveal="photo-item"
-              ref={(el) => {
-                itemRefs.current[i] = el;
-              }}
-              className={cn(
-                "group relative aspect-4/5 overflow-hidden border border-ink/10 will-change-transform",
-                COLUMN_OFFSET[i % COLUMN_OFFSET.length]
-              )}
-            >
-              <Image
-                src={src}
-                alt=""
-                fill
-                sizes="(min-width: 1024px) 20rem, 45vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 flex items-center justify-center bg-ink/0 opacity-0 transition-all duration-300 group-hover:bg-ink/40 group-hover:opacity-100">
-                <InstagramIcon className="h-7 w-7 text-paper" />
-              </div>
-            </a>
-          ))}
+          {images.galeria.map((src, i) => {
+            const blurDataURL = blurData[`galeria-${i + 1}`];
+            return (
+              <a
+                key={src}
+                href={site.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Ver post no Instagram: ${GALLERY_ALT[i]}`}
+                data-reveal="photo-item"
+                ref={(el) => {
+                  itemRefs.current[i] = el;
+                }}
+                className={cn(
+                  "group relative aspect-4/5 overflow-hidden border border-ink/10 will-change-transform",
+                  COLUMN_OFFSET[i % COLUMN_OFFSET.length]
+                )}
+              >
+                <Image
+                  src={src}
+                  alt=""
+                  fill
+                  sizes="(min-width: 1024px) 20rem, 45vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  {...(blurDataURL ? { placeholder: "blur" as const, blurDataURL } : {})}
+                />
+                <div className="absolute inset-0 flex items-center justify-center bg-ink/0 opacity-0 transition-all duration-300 group-hover:bg-ink/40 group-hover:opacity-100">
+                  <InstagramIcon className="h-7 w-7 text-paper" />
+                </div>
+              </a>
+            );
+          })}
         </div>
 
         <div className="mt-14 flex justify-center">

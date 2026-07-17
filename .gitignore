@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# fotos originais (não otimizadas) — nunca vão pro repo, só o output em public/images
+/raw-images
