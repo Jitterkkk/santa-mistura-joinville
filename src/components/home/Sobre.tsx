@@ -98,7 +98,8 @@ export function Sobre() {
 
           <div
             ref={photoRef}
-            className="relative aspect-4/3 w-full overflow-hidden border border-ink/10"
+            data-reveal="photo"
+            className="relative aspect-4/3 w-full overflow-hidden border border-ink/10 will-change-transform"
           >
             <Image
               src={images.ambiente1}

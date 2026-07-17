@@ -107,7 +107,7 @@ export function Hero() {
           <div
             data-reveal="photo"
             ref={photoRef}
-            className="absolute inset-0 overflow-hidden border border-ink/10"
+            className="absolute inset-0 overflow-hidden border border-ink/10 will-change-transform"
           >
             <Image
               src={images.hero}

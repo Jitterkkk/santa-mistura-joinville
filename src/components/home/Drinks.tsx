@@ -89,7 +89,8 @@ export function Drinks() {
           <div>
             <div
               ref={photoRef}
-              className="relative aspect-4/3 w-full overflow-hidden border border-paper/15"
+              data-reveal="photo"
+              className="relative aspect-4/3 w-full overflow-hidden border border-paper/15 will-change-transform"
             >
               <Image
                 src={images.ambiente2}

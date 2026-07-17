@@ -110,7 +110,7 @@ export function Galeria() {
                 itemRefs.current[i] = el;
               }}
               className={cn(
-                "group relative aspect-4/5 overflow-hidden border border-ink/10",
+                "group relative aspect-4/5 overflow-hidden border border-ink/10 will-change-transform",
                 COLUMN_OFFSET[i % COLUMN_OFFSET.length]
               )}
             >
