@@ -116,7 +116,7 @@ export function Reserva() {
             >
               <PinIcon className="h-6 w-6 shrink-0 text-principal" />
               <span className="flex-1 text-sm text-ink">{site.endereco}</span>
-              <span className="shrink-0 text-sm font-semibold text-principal">
+              <span className="shrink-0 text-sm font-semibold text-principal-deep">
                 Abrir no Google Maps →
               </span>
             </a>

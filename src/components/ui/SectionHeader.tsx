@@ -1,5 +1,5 @@
 import { cn } from "@/lib/cn";
-import { ACCENT_TEXT } from "@/lib/accent";
+import { ACCENT_TEXT, ACCENT_TEXT_DEEP } from "@/lib/accent";
 import type { Accent } from "@/data/menu";
 
 export function SectionHeader({
@@ -35,7 +35,7 @@ export function SectionHeader({
         aria-hidden="true"
         className={cn(
           "select-none font-display text-[clamp(2.25rem,6vw,4.5rem)] leading-none",
-          light ? "text-paper/10" : "text-ink/10"
+          light ? "text-paper/40" : "text-ink/50"
         )}
       >
         {index}
@@ -44,7 +44,7 @@ export function SectionHeader({
         <p
           className={cn(
             "text-[11px] font-semibold tracking-[0.2em] uppercase sm:text-xs",
-            ACCENT_TEXT[accent]
+            light ? ACCENT_TEXT[accent] : ACCENT_TEXT_DEEP[accent]
           )}
         >
           {kicker}

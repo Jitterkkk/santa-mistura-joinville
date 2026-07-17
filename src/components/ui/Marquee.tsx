@@ -1,5 +1,5 @@
 import { cn } from "@/lib/cn";
-import { ACCENT_TEXT, accentAt } from "@/lib/accent";
+import { ACCENT_TEXT_DEEP, accentAt } from "@/lib/accent";
 
 export function Marquee({ items, className }: { items: string[]; className?: string }) {
   const track = (
@@ -14,7 +14,7 @@ export function Marquee({ items, className }: { items: string[]; className?: str
           >
             {item}
           </span>
-          <span className={cn("mx-6 text-2xl sm:text-3xl", ACCENT_TEXT[accentAt(i)])} aria-hidden="true">
+          <span className={cn("mx-6 text-2xl sm:text-3xl", ACCENT_TEXT_DEEP[accentAt(i)])} aria-hidden="true">
             •
           </span>
         </span>

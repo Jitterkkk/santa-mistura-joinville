@@ -16,6 +16,17 @@ export const ACCENT_TEXT: Record<Accent, string> = {
   drink: "text-drink",
 };
 
+// Mesmas cores, escurecidas o suficiente pra texto pequeno (kickers,
+// marquee) fechar 4.5:1 contra o paper — o accent puro (ACCENT_TEXT)
+// só fecha contraste em cima do painel ink (ver globals.css). Toda
+// label sobre paper deve usar esta variante; sobre ink, usar a vivid.
+export const ACCENT_TEXT_DEEP: Record<Accent, string> = {
+  entrada: "text-entrada-deep",
+  principal: "text-principal-deep",
+  doce: "text-doce-deep",
+  drink: "text-drink-deep",
+};
+
 export const ACCENT_BG: Record<Accent, string> = {
   entrada: "bg-entrada",
   principal: "bg-principal",

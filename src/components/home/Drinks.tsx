@@ -103,7 +103,7 @@ export function Drinks() {
                 className="object-cover"
               />
             </div>
-            <p className="mt-4 text-xs tracking-wide text-paper/45 uppercase">
+            <p className="mt-4 text-xs tracking-wide text-paper/55 uppercase">
               Cozinha até 23h · Terça a sábado até 00h30
             </p>
           </div>

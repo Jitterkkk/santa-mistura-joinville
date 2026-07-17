@@ -11,6 +11,15 @@
   --color-doce: #8fbe21;
   --color-drink: #00a7dc;
 
+  /* Variantes escurecidas dos accents, só pra texto pequeno sobre o paper
+     (labels/kickers) — o accent puro não fecha 4.5:1 nesse tamanho.
+     Preserva os tokens de accent originais pra uso decorativo (dots,
+     bordas, fundos) onde contraste de texto não se aplica. */
+  --color-entrada-deep: #8b5d00;
+  --color-principal-deep: #b33500;
+  --color-doce-deep: #567214;
+  --color-drink-deep: #006484;
+
   --animate-marquee: marquee 32s linear infinite;
   --animate-spin-slow: spin-slow 16s linear infinite;
 }

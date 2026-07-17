@@ -90,8 +90,13 @@ export function RotatingWord() {
   }, []);
 
   return (
+    // role="img": o SplitText do GSAP escreve aria-label com a palavra
+    // inteira nesse elemento (pra não ler letra por letra), e um <span>
+    // sem role não aceita aria-label pela spec ARIA — img é o papel certo
+    // pra "conteúdo visual complexo, uma única label lida".
     <span
       ref={spanRef}
+      role="img"
       className={cn(WRAP_CLASS, "text-entrada")}
       style={{ "--word-scale": 1 } as CSSProperties}
     />
