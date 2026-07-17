@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap, SplitText } from "@/lib/gsap";
+import { prefersReducedMotion } from "@/lib/motion-preference";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { site } from "@/data/site";
@@ -30,6 +31,8 @@ export function Reserva() {
 
   useGSAP(
     () => {
+      if (prefersReducedMotion()) return;
+
       const titleEl = sectionRef.current?.querySelector<HTMLElement>("[data-reveal='title']");
       if (titleEl) {
         const split = new SplitText(titleEl, { type: "lines", linesClass: "overflow-hidden" });

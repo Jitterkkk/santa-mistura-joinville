@@ -44,10 +44,14 @@ export function RotatingWord() {
     function renderWord(i: number) {
       if (!el) return;
       const word = WORDS[i];
+      // revert() PRECISA vir antes de trocar o texto: ele restaura o
+      // snapshot original capturado pelo SplitText anterior, então
+      // chamá-lo depois de já ter setado o texto novo desfazia a troca
+      // (o texto voltava pra palavra antiga, só a cor ficava certa).
+      split?.revert();
       el.className = cn(WRAP_CLASS, word.color);
       el.style.setProperty("--word-scale", String(word.scale));
       el.textContent = word.text;
-      split?.revert();
       split = new SplitText(el, { type: "chars" });
       gsap.fromTo(
         split.chars,

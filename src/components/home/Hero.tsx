@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/lib/gsap";
+import { prefersReducedMotion } from "@/lib/motion-preference";
 import { Container } from "@/components/ui/Container";
 import { Marquee } from "@/components/ui/Marquee";
 import { RotatingWord } from "./RotatingWord";
@@ -28,6 +29,11 @@ export function Hero() {
 
   useGSAP(
     () => {
+      // Sob reduced-motion, não criamos tweens: o conteúdo já nasce no
+      // estado final (opacity/transform/clip-path padrão), sem precisar
+      // de nenhuma animação chegar ao fim pra ficar visível.
+      if (prefersReducedMotion()) return;
+
       const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
       tl.from("[data-reveal='para']", { yPercent: 100, opacity: 0, duration: 0.9 }, 0.1)
         .from("[data-reveal='word']", { yPercent: 100, opacity: 0, duration: 0.9 }, 0.2)

@@ -3,6 +3,7 @@
 import { forwardRef, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { prefersReducedMotion } from "@/lib/motion-preference";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { DottedRow } from "@/components/ui/DottedRow";
 import type { MenuSection as MenuSectionType } from "@/data/menu";
@@ -13,6 +14,8 @@ export const MenuSection = forwardRef<HTMLElement, { section: MenuSectionType; i
 
     useGSAP(
       () => {
+        if (prefersReducedMotion()) return;
+
         const items = gsap.utils.toArray<HTMLElement>("[data-reveal='item']", localRef.current);
         ScrollTrigger.batch(items, {
           start: "top 92%",

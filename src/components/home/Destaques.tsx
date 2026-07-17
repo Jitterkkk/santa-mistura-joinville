@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { prefersReducedMotion } from "@/lib/motion-preference";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { DottedRow } from "@/components/ui/DottedRow";
@@ -36,24 +37,29 @@ export function Destaques() {
 
   useGSAP(
     () => {
-      gsap.from("[data-reveal='row']", {
-        y: 20,
-        opacity: 0,
-        duration: 0.7,
-        ease: "power3.out",
-        stagger: 0.08,
-        scrollTrigger: { trigger: sectionRef.current, start: "top 75%" },
-      });
+      if (!prefersReducedMotion()) {
+        gsap.from("[data-reveal='row']", {
+          y: 20,
+          opacity: 0,
+          duration: 0.7,
+          ease: "power3.out",
+          stagger: 0.08,
+          scrollTrigger: { trigger: sectionRef.current, start: "top 75%" },
+        });
 
-      gsap.from("[data-reveal='card']", {
-        y: 24,
-        opacity: 0,
-        duration: 0.7,
-        ease: "power3.out",
-        stagger: 0.12,
-        scrollTrigger: { trigger: sectionRef.current, start: "top 75%" },
-      });
+        gsap.from("[data-reveal='card']", {
+          y: 24,
+          opacity: 0,
+          duration: 0.7,
+          ease: "power3.out",
+          stagger: 0.12,
+          scrollTrigger: { trigger: sectionRef.current, start: "top 75%" },
+        });
+      }
 
+      // A detecção da linha ativa (pra crossfade da foto) continua ligada
+      // sob reduced-motion: é rastreio de estado por hover/scroll, não uma
+      // animação decorativa — só as entradas acima ficam de fora.
       rowRefs.current.forEach((row, i) => {
         if (!row) return;
         ScrollTrigger.create({

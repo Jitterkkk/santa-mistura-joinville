@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "@/lib/gsap";
 import { Container } from "@/components/ui/Container";
@@ -58,6 +58,15 @@ export function CardapioBrowser() {
     if (!isSearching) return menu;
     return menu.map((section) => filterSection(section, trimmedQuery)).filter(sectionHasResults);
   }, [isSearching, trimmedQuery]);
+
+  // A busca muda a altura da página (menos itens = menos scroll), mas o
+  // ScrollTrigger.batch de cada MenuSection foi criado uma vez no mount com
+  // as posições da lista completa. Sem isso, itens que ainda não tinham
+  // revelado ficam presos em opacity:0 depois de filtrar.
+  useEffect(() => {
+    const id = requestAnimationFrame(() => ScrollTrigger.refresh());
+    return () => cancelAnimationFrame(id);
+  }, [visibleSections]);
 
   useGSAP(
     () => {

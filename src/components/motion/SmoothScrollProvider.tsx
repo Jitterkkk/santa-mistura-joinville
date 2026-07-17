@@ -23,7 +23,6 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
 
     const tick = (time: number) => instance.raf(time * 1000);
     gsap.ticker.add(tick);
-    gsap.ticker.lagSmoothing(0);
 
     return () => {
       gsap.ticker.remove(tick);
