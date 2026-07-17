@@ -124,7 +124,7 @@ export function Galeria() {
                   src={src}
                   alt=""
                   fill
-                  sizes="(min-width: 1024px) 20rem, 45vw"
+                  sizes="(min-width: 1024px) 25rem, 45vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   {...(blurDataURL ? { placeholder: "blur" as const, blurDataURL } : {})}
                 />

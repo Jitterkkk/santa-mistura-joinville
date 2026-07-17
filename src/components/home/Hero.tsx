@@ -121,7 +121,8 @@ export function Hero() {
               fill
               sizes="(min-width: 1024px) 24rem, 0px"
               className="object-cover"
-              priority
+              preload
+              fetchPriority="high"
             />
           </div>
           <div data-reveal="badge" className="absolute -bottom-8 -left-8">
